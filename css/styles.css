@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap'); 
+
+*{ 
+    margin: 0; 
+    padding: 0;
+}   
+
+body{ 
+    font-family: 'Roboto Slab', serif;
+}
+ 
+:root{ 
+    --primari-color: #03010f; 
+    --secundari-color: #09B5B5;  
+    --white-color: #fff; 
+}
+
+.header_container { 
+    display: grid; 
+    grid-template-columns: 70% 30%;   
+    grid-template-rows: 100px 1fr ; 
+    height: 100vh; 
+    grid-template-areas: 
+    "nav img"
+    "presentation img" ;     
+    color: var(--white-color); 
+} 
+
+.nav_container { 
+    background-color: var(--primari-color);    
+    display: flex;  
+    grid-area: nav; 
+    position: relative; 
+} 
+
+.nav_container ul { 
+    width: 80%; 
+    display: flex;  
+    justify-content: space-evenly;
+    border-bottom: 2px solid var(--secundari-color);
+}
+.nav_item{ 
+    list-style: none; 
+    margin: 15px;  
+    font-size: 1.5rem;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+} 
+
+.nav_item a { 
+    text-decoration: none; 
+    color: var(--white-color);  
+    transition: color 0.3s ease-in-out; 
+}
+.nav_item a:hover{ 
+    color:var(--secundari-color); 
+}
+.nav_logo_container{ 
+    width: 200px; 
+    height: 200px;   
+    position: relative; 
+}
+.nav_logotipo{ 
+    width: 80%; 
+    height: auto;
+}
+.header_image{ 
+grid-area: img; 
+background-color: var(--primari-color);  
+width: 100%; 
+height: 100vh;
+display: flex; 
+justify-content: center; 
+align-items: center; 
+} 
+
+.container_image{ 
+    width: 94%; 
+}  
+
+.pc_image{ 
+    max-width: 100%; 
+    border-radius: 20px; 
+} 
+
+.presentation_container{ 
+    grid-area: presentation;
+    background-color: var(--primari-color);   
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    } 
+.header_text{ 
+    font-size: 4rem; 
+} 
+.card_rs{ 
+    margin-top: 40px; 
+    padding: 30px; 
+    width: 60%; 
+    height: 200px;  
+    border-radius: 30px; 
+    border: 2px solid var(--secundari-color);   
+    font-size: 1.5rem;
+    display: flex;  
+    flex-direction: column; 
+    align-items: center;  
+    justify-content: center; 
+
+} 
+
+.card_rs_logos{ 
+    width: 50%;  
+    margin-top: 30px;   
+    font-size: 2.5rem;  
+    display: flex;  
+    justify-content: space-around; 
+}  
+
+.card_rs_logos a{
+  text-decoration: none; 
+  color: var(--white-color); 
+  transform: translate(0);  
+  transition: transform 0.5s ease-out; 
+} 
+
+.card_rs_logos a:hover{ 
+    transform: translateY(10px); 
+}
+
+
+
+
+
