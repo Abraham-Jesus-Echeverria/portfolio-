@@ -116,7 +116,7 @@ align-items: center;
 .header_text{ 
     font-size: 4rem; 
     opacity: 0; 
-    transition: opacity 1s linear; 
+    transition: opacity 0.9s ease-in-out; 
 }  
 
 .header_text_transition{ 
