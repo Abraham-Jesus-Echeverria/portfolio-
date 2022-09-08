@@ -21,6 +21,7 @@ body{
     --primari-color: #03010f; 
     --secundari-color: #09B5B5;  
     --white-color: #fff; 
+    --b-radios-size: 20px; 
 }
 
  .header_container { 
@@ -115,8 +116,8 @@ align-items: center;
     }  
 .header_text{ 
     font-size: 4rem; 
-    opacity: 0; 
-    transition: opacity 1s linear; 
+    /* opacity: 0;  */
+    /* transition: opacity 1s ease-in-out;  */
 }  
 
 .header_text_transition{ 
@@ -127,7 +128,7 @@ align-items: center;
     padding: 30px; 
     width: 60%; 
     height: 200px;  
-    border-radius: 30px; 
+    border-radius: var(--b-radios-size);  
     border: 2px solid var(--secundari-color);   
     font-size: 1.5rem;
     display: flex;  
@@ -159,6 +160,17 @@ align-items: center;
 
 .card_rs_logos a:hover{ 
     transform: translateY(10px); 
+} 
+
+/* _____________________________section contact______________________ */ 
+
+.section_contact { 
+    border: 2px solid var(--secundari-color);  
+    border-radius: var(--b-radios-size);  
+    /* padding: 0 30px 30px 30px;  */
+    display: flex; 
+    flex-direction: column;  
+
 }
 
 
