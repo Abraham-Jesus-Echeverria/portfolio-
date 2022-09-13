@@ -21,16 +21,17 @@
         xhr.setRequestHeader("content-type", "text/html; charset=utf-8");  
         xhr.send(); 
     } 
-
+    
+// agregando pagina home por defecto 
     document.addEventListener("DOMContentLoaded", (e)=>{ 
         getFunction({ 
             url: "./home.html",  
             success: (html) => $P_container.innerHTML = html, 
-            err: (error) => $P_container.innerHTML = `<h1>${err}</h1>`
+            err: (error) => $P_container.innerHTML = `<h1>${error}</h1>`
         }
         )
     });  
-
+    // cambiando de pagina segun el boton seleccionado 
     document.addEventListener("click", (e)=>{ 
         if(e.target.matches(".nav_item a")){ 
             e.preventDefault();  
