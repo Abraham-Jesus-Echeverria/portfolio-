@@ -196,7 +196,7 @@ form{
     width: 95%; 
     display: grid; 
     grid-template-columns: repeat(2, 50%);  
-    grid-template-rows: repeat(4, 1fr); ;   
+    grid-template-rows: repeat(4, 1fr);    
     text-align: left; 
     grid-template-areas: 
     "labelN labelN" 
@@ -211,8 +211,10 @@ form{
 form input{
     margin-top: 20px;   
     width: 100%; 
-    height: 28px; 
+    height: 30px; 
     margin-right: 10px; 
+    padding: 0 5px; 
+    box-sizing: border-box; 
 }
 
 .label_name{ 
@@ -271,6 +273,21 @@ form input{
 }  
 .info_title{ 
     margin-top: 20px; 
+} 
+
+/* _______________________validacion formulario__________________________*/ 
+
+.input_incorrect{ 
+    outline: 2px solid #f00; 
+} 
+
+.error_mensaje{ 
+    color: #f00; 
+    margin-top: 5px;   
+    display: none; 
+}
+.err_activate{ 
+    display: block; 
 }
 
 

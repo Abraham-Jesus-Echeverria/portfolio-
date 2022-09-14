@@ -7,7 +7,6 @@
     
 
     window.addEventListener("load", ()=>{ 
-        console.log("se esta disparando el evento"); 
     
         arrayHeaderText[0].classList.add("header_text_transition");  
         // arrayHeaderText[1].classList.add("header_text_transition");  
@@ -15,7 +14,7 @@
         setTimeout(()=>{ 
             $container_image.classList.add("container_image_transition"); 
             $nav_ul.classList.add("nav_ul_transition"); 
-            $rs_container.classList.add("card_rs_transition");
+            // $rs_container.classList.add("card_rs_transition");
         },800);  
      
 

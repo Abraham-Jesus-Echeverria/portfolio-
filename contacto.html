@@ -31,18 +31,21 @@
         <h1 class="header_text"> Contáctame </h1> 
         <div class="form_container">   
             <div class="inputs_content"> 
-            <form action=""> 
+            <form action="" id="formulario">  
                 <label for="full_name" class="label_name styles_long_labels">Nombre completo 
-                    <input type="text" name="full_Name" id="full_name">
+                    <input type="text" name="full_Name" id="full_name" required class="input_name">   
+                    <p class="error_mensaje">Ingresa tu nombre sin caracteres especiales y sin numeros</p> 
                 </label> 
 
                 <div class="email_phone_container"> 
-                <label for="telefono" class="styles_short_labels phone_label">Número telefónico 
-                    <input type="text" name="Phone" id="telefono">
+                <label for="telefono" class="styles_short_labels phone_label">Número telefónico  
+                    <input type="text" name="Phone" id="telefono" required class="input_phone">   
+                    <p class="error_mensaje">ingresa un numero telefonico valido</p>
                 </label> 
              
                 <label for="Email" class="styles_short_labels email_label">Correo electrónico 
-                    <input type="email" name="email" id="Email"> 
+                    <input type="email" name="email" id="Email" required class="input_email">  
+                    <p class="error_mensaje" id="error">ingresa una direccion de correo valida</p> 
                 </label> 
                 </div>
                  
@@ -86,6 +89,7 @@
     
 
     <script src="./js/transitions.js"></script>
-    <script src="https://kit.fontawesome.com/0711f281fb.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0711f281fb.js" crossorigin="anonymous"></script> 
+    <script src="./js/validate_form.js"></script>
 </body>
 </html>
