@@ -5,7 +5,12 @@ let regularExpresion = {
     nombre: /^[a-zA-ZÁ-ÿ\s]{1,40}$/, 
     email: /^(([^<>()\[\]\\.,:\s@"]+(\.[^<>()\[\]\\.,:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 
     telefono: /^\d{7,14}$/
-} 
+}  
+let campos = { 
+    nombre: false, 
+    email: false, 
+    telefono: false, 
+}
 
 // creamos funcion para evaluar los campos seleccionados a traves de su atributo name, este debera ejecutar la funcion que realiza la validacion de los datos, enviando los parametros adecuados segun sea el caso. 
 
@@ -18,29 +23,34 @@ let validarInput = (e) =>{
 
     switch (e.target.name) {
         case "full_Name":
-            validacion(e.target, $input_name, regularExpresion.nombre, $array_err[0]);  
+            validacion(e.target, $input_name, regularExpresion.nombre, $array_err[0], "nombre");  
             break;  
 
         case "Phone":
-            validacion(e.target, $input_phone, regularExpresion.telefono, $array_err[1]); 
+            validacion(e.target, $input_phone, regularExpresion.telefono, $array_err[1], "telefono"); 
             break;  
 
          case "email":
-            validacion(e.target, $input_email, regularExpresion.email, $array_err[2]); 
+            validacion(e.target, $input_email, regularExpresion.email, $array_err[2], "email");  
             break;
     }
 }
 
 // en esta funcion realizamos la validacion de los datos con sus respectivas expresiones regulares que recibimos a traves de los parametros.  
 
-let validacion = (input, inputType, regExp, error) => {    
+let validacion = (input, inputType, regExp, error, campo) => {    
 
     if(regExp.test(input.value)){ 
         inputType.classList.remove("input_incorrect");  
-        error.classList.remove("err_activate");      
+        error.classList.remove("err_activate");  
+        campos[campo] = true;   
+        console.log(campos[campo]);     
     } else { 
         inputType.classList.add("input_incorrect");      
         error.classList.add("err_activate");   
+        campos[campo] = false;
+        console.log(campos[campo]); 
+       
         
     } 
 }
@@ -57,4 +67,7 @@ input.addEventListener("change", validarInput);
 
 $form.addEventListener("submit", (e)=>{ 
     e.preventDefault();  
+    if(campos.nombre && campos.telefono && campos.email){ 
+        
+    }
 }); 
