@@ -104,19 +104,3 @@ $form.addEventListener("submit", (e)=>{
     }
     
 });   
-
-
-
-
-// for (const campo in campos) { 
-//     if(campos.campo != campos.textArea){  
-//    campos.campo = false;   
-//     }
-//     console.log(campos.campo); 
-//     };  
-
-
- 
-
-
-  
