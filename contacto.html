@@ -33,51 +33,52 @@
             <div class="inputs_content"> 
             <form action="" id="formulario">  
                 <label for="full_name" class="label_name styles_long_labels">Nombre completo
-                    <input type="text" name="full_Name" id="full_name" class="input_name">   
+                    <input type="text" name="full_Name" id="full_name" class="input_name" placeholder="Abraham Jesus ...">   
                     <p class="error_mensaje">Ingresa tu nombre sin caracteres especiales y sin números</p> 
                 </label> 
 
                 <div class="email_phone_container"> 
                 <label for="telefono" class="styles_short_labels phone_label">Número telefónico  
-                    <input type="text" name="Phone" id="telefono" class="input_phone">    
+                    <input type="text" name="Phone" id="telefono" class="input_phone" placeholder="9994233416">    
                     <p class="error_mensaje">Ingresa un número telefónico válido</p>
                 </label> 
              
                 <label for="Email" class="styles_short_labels email_label">Correo electrónico 
-                    <input type="text" name="email" id="Email" class="input_email">   
+                    <input type="text" name="email" id="Email" class="input_email" placeholder="Correo_ejemplo@gmail.com">   
                     <p class="error_mensaje" id="error">Ingresa una dirección de correo válida</p> 
                 </label> 
                 </div>
                  
                 <label for="mensaje" class="label_mensaje styles_long_labels">Mensaje  
-                    <textarea type="text" name="mensaje" id="textarea"  cols="30" rows="10"></textarea> 
+                    <textarea type="text" name="mensaje" id="textarea"  cols="30" rows="10" placeholder="Ingresa tu mensaje"></textarea> 
                     <p class="error_mensaje" >No puede escribir un mensaje con mas de 200 caracteres</p>
                 </label> 
             <div class="submit_container">  
                 <input type="submit" name="submit" id="submit" value="Enviar" class="submit_button" required="none">
                 <p class="mensaje_succes" id="suceesMensage"></p>    
             </div>
-
             </div> 
-
-
             </form>
+
             <div class="info_container"> 
                 <h2 class="info_title">Mas Información</h2>  
+                <div class="icons_container">  
+                    <div class="items_icons_containers"> 
+                        <i class="icon fa-solid fa-location-dot"></i> 
+                        <p>Mérida Yucatán México </p>  
+                    </div> 
+                     <div class="items_icons_containers"> 
+                        <i class="icon fa-solid fa-phone"></i>
+                        <p>9994-23-34-16</p> 
+                    </div> 
+                    <div class="items_icons_containers">  
+                        <i class="icon fa-solid fa-envelope"></i> 
+                        <p>abraham.ech9@gmail.com</p>
+                    </div> 
+                 </div>
             </div>
+
         </div>
-        <!-- <h2 class="header_text">Web developer</h2>    
-
-        <aside class="card_rs">  
-            <h2>Visita mis redes sociales </h2>  
-            <div class="card_rs_logos">  
-               <a href="http://" target="_blank"><i class="fa-brands fa-linkedin"></i></a> 
-
-               <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>  
-               <a href="http://" target="_blank"><i class="fa-brands fa-codepen"></i></a> 
-            </div>
-        </aside>  -->
-
         </div>  
         </main> 
 
@@ -85,11 +86,10 @@
             <div class="container_image">    
             <img src="./assets/images/pc-image2.jpg" alt="pc-image" class="pc_image">   
             </div>
-        </div> 
-    
+        </div>  
 
-    <script src="./js/transitions.js"></script>
-    <script src="https://kit.fontawesome.com/0711f281fb.js" crossorigin="anonymous"></script> 
+    <script src="https://kit.fontawesome.com/0711f281fb.js" crossorigin="anonymous"></script>
+    <script src="./js/transitions.js"></script> 
     <script src="./js/validate_form.js"></script>
 </body>
 </html>
