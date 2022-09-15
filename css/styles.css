@@ -189,15 +189,18 @@ align-items: center;
     grid-area: form;   
     display: flex; 
     justify-content: center; 
-    align-items: center; 
+    /* align-items: center;  */ 
+    box-sizing: border-box; 
+    padding: 20px 0 ; 
 }
 
 form{   
     width: 95%; 
     display: grid; 
     grid-template-columns: repeat(2, 50%);  
-    grid-template-rows: repeat(4, 1fr);    
+    grid-template-rows: repeat(4, 25%);    
     text-align: left; 
+    align-items: flex-start; 
     grid-template-areas: 
     "labelN labelN" 
     "label label" 
@@ -225,7 +228,7 @@ form input{
 } 
 
 .styles_short_labels{  
-    margin: 20px 0 0 0;  
+    margin: 10px 0 0 0;  
     width: 48%; 
  } 
  .styles_short_labels input{ 
@@ -234,7 +237,7 @@ form input{
 
 .styles_long_labels{ 
     width: 100%;  
-    margin: 20px 0 0 0;  
+    margin: 10px 0 0 0;  
     justify-self: left;
     align-self: flex-start;
     display: flex; 
@@ -254,8 +257,8 @@ form input{
 }
 
 .submit_button{  
-    margin-top: 40px; 
-    grid-area: submit; 
+    margin-top: 40px;  
+    margin-bottom: 10px; 
     width: 150px;  
     height: 30px; 
     border-radius: 4px; 
@@ -264,7 +267,13 @@ form input{
     background-color: #ED1C24; 
     color: var(--white-color); 
 
-} 
+}  
+.submit_container{ 
+    grid-area: submit; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
 
 .info_container{ 
     grid-area: info; 
@@ -285,11 +294,18 @@ form input{
     color: #f00; 
     margin-top: 5px;   
     display: none; 
+    font-size: 12px; 
 }
 .err_activate{ 
     display: block; 
 }
-
+.mensaje_succes{ 
+    grid-area: submit;   
+    display: none; 
+}  
+.mensaje_succes_activate{ 
+display: block; 
+}
 
 
 

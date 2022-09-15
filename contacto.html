@@ -32,31 +32,31 @@
         <div class="form_container">   
             <div class="inputs_content"> 
             <form action="" id="formulario">  
-                <label for="full_name" class="label_name styles_long_labels">Nombre completo 
-                    <input type="text" name="full_Name" id="full_name" required class="input_name">   
-                    <p class="error_mensaje">Ingresa tu nombre sin caracteres especiales y sin numeros</p> 
+                <label for="full_name" class="label_name styles_long_labels">Nombre completo
+                    <input type="text" name="full_Name" id="full_name" class="input_name">   
+                    <p class="error_mensaje">Ingresa tu nombre sin caracteres especiales y sin números</p> 
                 </label> 
 
                 <div class="email_phone_container"> 
                 <label for="telefono" class="styles_short_labels phone_label">Número telefónico  
-                    <input type="text" name="Phone" id="telefono" required class="input_phone">   
-                    <p class="error_mensaje">ingresa un numero telefonico valido</p>
+                    <input type="text" name="Phone" id="telefono" class="input_phone">    
+                    <p class="error_mensaje">Ingresa un número telefónico válido</p>
                 </label> 
              
                 <label for="Email" class="styles_short_labels email_label">Correo electrónico 
-                    <input type="email" name="email" id="Email" required class="input_email">  
-                    <p class="error_mensaje" id="error">ingresa una direccion de correo valida</p> 
+                    <input type="text" name="email" id="Email" class="input_email">   
+                    <p class="error_mensaje" id="error">Ingresa una dirección de correo válida</p> 
                 </label> 
                 </div>
                  
-
                 <label for="mensaje" class="label_mensaje styles_long_labels">Mensaje  
-                    <textarea type="text" name="mensaje" id="mensaje"  cols="30" rows="10" maxlength="200"></textarea>
+                    <textarea type="text" name="mensaje" id="textarea"  cols="30" rows="10"></textarea> 
+                    <p class="error_mensaje" >No puede escribir un mensaje con mas de 200 caracteres</p>
                 </label> 
-            
-                
-
-                <input type="submit" name="submit" id="submit" value="Enviar" class="submit_button">  
+            <div class="submit_container">  
+                <input type="submit" name="submit" id="submit" value="Enviar" class="submit_button" required="none">
+                <p class="mensaje_succes" id="suceesMensage"></p>    
+            </div>
 
             </div> 
 
