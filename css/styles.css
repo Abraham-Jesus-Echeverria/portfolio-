@@ -328,3 +328,43 @@ form input {
     color: #ed1c24; 
     margin-right: 10px; 
 }
+.contact_title{ 
+  font-size: 4rem;
+  margin: 0 ;  
+  margin-bottom: 15px; 
+}
+/* _____________________intercambio de visualizacion_____________ */ 
+.index_container{ 
+  position: absolute;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;  
+  transform: translateX(0); 
+  transition: transform 0.5s linear;  
+}  
+.index_container_activate{ 
+  transform: translateX(-130%);
+}
+.presentation_container_contact{ 
+  position: absolute; 
+  transform: translateX(-100%); 
+  transition: transform 0.5s linear; 
+}
+.presentation_container_contact_activate{ 
+  transform: translateX(0);
+}
+.about_container{ 
+width: 70%; 
+position: absolute; 
+display: flex; 
+flex-direction: column;
+justify-content: center;
+align-items: center; 
+transform: translateX(-100%);  
+transition: transform 0.5s linear; 
+} 
+.about_container_activate{ 
+  transform: translateX(0);
+}
+/* ______________________________________________________________________________ */
