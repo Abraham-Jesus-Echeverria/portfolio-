@@ -1,6 +1,7 @@
 let $form = document.getElementById("formulario");  
 let $inputs = document.querySelectorAll("#formulario input");  
 let $textArea = document.getElementById("textarea"); 
+let $button = document.getElementById("buttonSubmit"); 
 
 let regularExpresion = { 
     nombre: /^[a-zA-ZÁ-ÿ\s]{1,40}$/, 
@@ -17,12 +18,13 @@ let campos = {
 
 // creamos funcion para evaluar los campos seleccionados a traves de su atributo name, este debera ejecutar la funcion que realiza la validacion de los datos, enviando los parametros adecuados segun sea el caso. 
 let $mensaje_err = document.querySelectorAll(".error_mensaje"); 
-let $array_err = [... $mensaje_err];  
-
-let validarInput = (e) =>{     
+let $array_err = [... $mensaje_err];   
 let $input_name = document.querySelector(".input_name"); 
 let $input_phone = document.querySelector(".input_phone"); 
-let $input_email = document.querySelector(".input_email");  
+let $input_email = document.querySelector(".input_email"); 
+console.log($input_email.value);
+
+let validarInput = (e) =>{      
 
     switch (e.target.name) {
         case "full_Name":
@@ -82,24 +84,63 @@ let $succes_mensaje = document.getElementById("suceesMensage");
 let submitValidation = (mensaje, color)=>{ 
     $succes_mensaje.textContent = mensaje; 
     $succes_mensaje.classList.add("mensaje_succes_activate"); 
-    $succes_mensaje.style.color = color;    
-    setTimeout(() => {
+    $succes_mensaje.style.color = color;   
+    setTimeout(() => { 
+        $button.removeAttribute("disabled"); 
+        $button.classList.remove("submit_button_disabled"); 
         $succes_mensaje.classList.remove("mensaje_succes_activate"); 
-        $succes_mensaje.textContent = ""; 
+        $succes_mensaje.textContent = "";   
+
     }, 2000);  
 } 
+// ------------------------------conectando a la API---------------------------- 
+// enviando los valores del formulario a la API que se conecta con el correo electronico.
+let formSubmit = async() => {   
+    let options = {
+        method: "POST",   
+        headers:{ "Content-type": "application/json; charset=UTF-8" },
+        body: JSON.stringify({
+            nombre: $input_name.value, 
+            telefono: $input_phone.value, 
+            email: $input_email.value, 
+            mensaje: $textArea.value
+        })
+    } 
+
+    await fetch("https://formsubmit.co/ajax/167b789d7e81ae7f43f99037abb3aec9", options)
+    .then((res)=>{ 
+        return res.ok? res.json(): Promise.reject(res); 
+       
+    }) 
+    .then((Response)=>{  
+        for (const camp in campos) { 
+            if(camp != "textArea") campos[camp] = false; 
+        }  
+        submitValidation("¡El formulario ha sido enviado exitosamente!", "#0f0" );  
+        $form.reset(); 
+
+    })
+    .catch((error)=>{  
+        submitValidation("¡Ha ocurrido un error, inténtelo más tarde o comuníquese por otro medio!", "#f00" );
+    }); 
+}  
+ 
+// ----------------------------------------------------------------------------
 
 // creando evento para enviar el formulario segun las validaciones 
 $form.addEventListener("submit", (e)=>{ 
     e.preventDefault();  
     if(campos.nombre && campos.telefono && campos.email && campos.textArea){ 
-        $form.reset();   
-        for (const camp in campos) { 
-            if(camp != "textArea") campos[camp] = false; 
-        }
-        submitValidation("¡El formulario ha sido enviado exitosamente!", "#0f0" ); 
-           
+        $succes_mensaje.style.color = "#fff";     
+        $succes_mensaje.textContent = "Enviando...";  
+        $succes_mensaje.classList.add("mensaje_succes_activate");  
+
+        $button.setAttribute("disabled", "true");   
+        $button.classList.add("submit_button_disabled");
+        formSubmit();   
     } else{   
+        $button.setAttribute("disabled", "true");   
+        $button.classList.add("submit_button_disabled");  
         submitValidation("porfavor rellena adecuadamente el formulario", "#f00" ); 
     }
     
