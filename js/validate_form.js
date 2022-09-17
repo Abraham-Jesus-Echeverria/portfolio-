@@ -3,13 +3,13 @@ let $inputs = document.querySelectorAll("#formulario input");
 let $textArea = document.getElementById("textarea"); 
 let $button = document.getElementById("buttonSubmit"); 
 
-let regularExpresion = { 
+const regularExpresion = { 
     nombre: /^[a-zA-ZÁ-ÿ\s]{1,40}$/, 
     email: /^(([^<>()\[\]\\.,:\s@"]+(\.[^<>()\[\]\\.,:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 
     telefono: /^\d{7,14}$/, 
     textArea: /^.{0,200}$/
 }  
-let campos = { 
+const campos = { 
     nombre: false, 
     email: false, 
     telefono: false, 
@@ -18,13 +18,13 @@ let campos = {
 
 // creamos funcion para evaluar los campos seleccionados a traves de su atributo name, este debera ejecutar la funcion que realiza la validacion de los datos, enviando los parametros adecuados segun sea el caso. 
 let $mensaje_err = document.querySelectorAll(".error_mensaje"); 
-let $array_err = [... $mensaje_err];   
+const $array_err = [... $mensaje_err];   
 let $input_name = document.querySelector(".input_name"); 
 let $input_phone = document.querySelector(".input_phone"); 
 let $input_email = document.querySelector(".input_email"); 
 console.log($input_email.value);
 
-let validarInput = (e) =>{      
+const validarInput = (e) =>{      
 
     switch (e.target.name) {
         case "full_Name":
@@ -43,7 +43,7 @@ let validarInput = (e) =>{
 
 // en esta funcion realizamos la validacion de los datos con sus respectivas expresiones regulares que recibimos a traves de los parametros.  
 
-let validacion = (input, inputType, regExp, error, campo) => {    
+const validacion = (input, inputType, regExp, error, campo) => {    
 
     if(regExp.test(input.value)){ 
         inputType.classList.remove("input_incorrect");  
@@ -64,7 +64,7 @@ input.addEventListener("change", validarInput);
 
 // ---------------------------------validando_textarea------------------------------
 
-let validarTextarea = () =>{ 
+const validarTextarea = () =>{ 
     if(regularExpresion.textArea.test($textArea.value)){ 
         campos["textArea"] = true;  
         $textArea.classList.remove("input_incorrect");  
@@ -81,7 +81,7 @@ $textArea.addEventListener("change", validarTextarea);
 
 // creando funcion para validar el envio del formulario: 
 let $succes_mensaje = document.getElementById("suceesMensage"); 
-let submitValidation = (mensaje, color)=>{ 
+const submitValidation = (mensaje, color)=>{ 
     $succes_mensaje.textContent = mensaje; 
     $succes_mensaje.classList.add("mensaje_succes_activate"); 
     $succes_mensaje.style.color = color;   
@@ -95,7 +95,7 @@ let submitValidation = (mensaje, color)=>{
 } 
 // ------------------------------conectando a la API---------------------------- 
 // enviando los valores del formulario a la API que se conecta con el correo electronico.
-let formSubmit = async() => {   
+const formSubmit = async() => {   
     let options = {
         method: "POST",   
         headers:{ "Content-type": "application/json; charset=UTF-8" },
@@ -141,7 +141,7 @@ $form.addEventListener("submit", (e)=>{
     } else{   
         $button.setAttribute("disabled", "true");   
         $button.classList.add("submit_button_disabled");  
-        submitValidation("porfavor rellena adecuadamente el formulario", "#f00" ); 
+        submitValidation("Por favor rellena adecuadamente el formulario", "#f00" ); 
     }
     
 });   
